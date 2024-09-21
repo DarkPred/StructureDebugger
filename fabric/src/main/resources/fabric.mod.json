@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${mod_id}",
+  "version": "${mod_version}",
+  "name": "${mod_name}",
+  "description": "${mod_description}",
+  "authors": ["${mod_author}"],
+  "contact": {
+    "repo": "https://github.com/DarkPred/StructureDebugger"
+  },
+  "license": "${mod_license}",
+  "icon": "assets/extended_structure_blocks/logo.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.github.darkpred.extended_structure_blocks.fabric.ExtendedStructureBlocksFabric"
+    ],
+    "client": [
+      "com.github.darkpred.extended_structure_blocks.fabric.client.ExtendedStructureBlocksFabricClient"
+    ]
+  },
+  "mixins": [
+    "extended_structure_blocks.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "minecraft": "~${minecraft_version}",
+    "java": ">=17",
+    "fabric-api": "*"
+  }
+}
