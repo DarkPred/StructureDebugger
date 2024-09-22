@@ -12,32 +12,20 @@ import org.spongepowered.asm.mixin.injection.ModifyArg;
 @Mixin(StructureBlockEntity.class)
 public abstract class StructureBlockEntityMixin implements ExtendedStructureBlockEntity {
     @Unique
-    private boolean extendedStructureBlocks$saveStructureVoid;
-    @Unique
-    private boolean extendedStructureBlocks$showCaveAir;
+    private boolean extended$saveStructureVoid;
 
     @ModifyArg(method = "saveStructure(Z)Z", index = 4, at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/levelgen/structure/templatesystem/StructureTemplate;fillFromWorld(Lnet/minecraft/world/level/Level;Lnet/minecraft/core/BlockPos;Lnet/minecraft/core/Vec3i;ZLnet/minecraft/world/level/block/Block;)V"))
     private @Nullable Block saveStructureVoid(@Nullable Block toIgnore) {
-        return extendedStructureBlocks$shouldSaveStructureVoid() ? null : toIgnore;
+        return extended$shouldSaveStructureVoid() ? null : toIgnore;
     }
 
     @Override
-    public boolean extendedStructureBlocks$shouldSaveStructureVoid() {
-        return extendedStructureBlocks$saveStructureVoid;
+    public boolean extended$shouldSaveStructureVoid() {
+        return extended$saveStructureVoid;
     }
 
     @Override
-    public void extendedStructureBlocks$setSaveStructureVoid(boolean saveStructureVoid) {
-        this.extendedStructureBlocks$saveStructureVoid = saveStructureVoid;
-    }
-
-    @Override
-    public boolean extendedStructureBlocks$shouldShowCaveAir() {
-        return extendedStructureBlocks$showCaveAir;
-    }
-
-    @Override
-    public void extendedStructureBlocks$setShowCaveAir(boolean showCaveAir) {
-        this.extendedStructureBlocks$showCaveAir = showCaveAir;
+    public void extended$setSaveStructureVoid(boolean saveStructureVoid) {
+        this.extended$saveStructureVoid = saveStructureVoid;
     }
 }

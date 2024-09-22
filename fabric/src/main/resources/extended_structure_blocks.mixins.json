@@ -4,10 +4,13 @@
   "package": "com.github.darkpred.extended_structure_blocks.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "ServerboundSetStructureBlockPacketMixin", "ServerGamePacketListenerImplMixin", "StructureBlockEntityMixin"
+    "ServerboundSetStructureBlockPacketMixin",
+    "ServerGamePacketListenerImplMixin",
+    "StructureBlockEntityMixin"
   ],
   "client": [
-    "StructureBlockEditScreenAccessor", "StructureBlockEditScreenMixin", "StructureBlockRendererMixin"
+    "StructureBlockEditScreenMixin",
+    "StructureBlockRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

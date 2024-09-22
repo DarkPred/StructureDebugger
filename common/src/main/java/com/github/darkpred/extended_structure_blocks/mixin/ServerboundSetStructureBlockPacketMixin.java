@@ -10,43 +10,29 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(ServerboundSetStructureBlockPacket.class)
+@Mixin(value = ServerboundSetStructureBlockPacket.class, priority = 995)
 public abstract class ServerboundSetStructureBlockPacketMixin implements ExtendedStructurePacket {
 
     @Unique
-    private boolean extendedStructureBlocks$saveStructureVoid;
-    @Unique
-    private boolean extendedStructureBlocks$showCaveAir;
+    private boolean extended$saveStructureVoid;
 
     @Inject(method = "<init>(Lnet/minecraft/network/FriendlyByteBuf;)V", at = @At("TAIL"))
     private void updateConstructor(CallbackInfo ci, @Local(argsOnly = true) FriendlyByteBuf pBuffer) {
-        extendedStructureBlocks$setSaveStructureVoid(pBuffer.readBoolean());
-        extendedStructureBlocks$setShowCaveAir(pBuffer.readBoolean());
+        extended$setSaveStructureVoid(pBuffer.readBoolean());
     }
 
     @Inject(method = "write", at = @At("TAIL"))
     private void updateWrite(CallbackInfo ci, @Local(argsOnly = true) FriendlyByteBuf pBuffer) {
-        pBuffer.writeBoolean(extendedStructureBlocks$saveStructureVoid);
-        pBuffer.writeBoolean(extendedStructureBlocks$showCaveAir);
+        pBuffer.writeBoolean(extended$saveStructureVoid);
     }
 
     @Override
-    public boolean extendedStructureBlocks$shouldSaveStructureVoid() {
-        return extendedStructureBlocks$saveStructureVoid;
+    public boolean extended$shouldSaveStructureVoid() {
+        return extended$saveStructureVoid;
     }
 
     @Override
-    public void extendedStructureBlocks$setSaveStructureVoid(boolean saveStructureVoid) {
-        this.extendedStructureBlocks$saveStructureVoid = saveStructureVoid;
-    }
-
-    @Override
-    public boolean extendedStructureBlocks$shouldShowCaveAir() {
-        return extendedStructureBlocks$showCaveAir;
-    }
-
-    @Override
-    public void extendedStructureBlocks$setShowCaveAir(boolean showCaveAir) {
-        this.extendedStructureBlocks$showCaveAir = showCaveAir;
+    public void extended$setSaveStructureVoid(boolean saveStructureVoid) {
+        this.extended$saveStructureVoid = saveStructureVoid;
     }
 }

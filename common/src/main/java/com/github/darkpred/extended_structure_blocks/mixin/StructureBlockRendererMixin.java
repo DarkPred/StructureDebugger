@@ -1,6 +1,5 @@
 package com.github.darkpred.extended_structure_blocks.mixin;
 
-import com.github.darkpred.extended_structure_blocks.ExtendedStructureBlockEntity;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.blaze3d.vertex.VertexConsumer;
 import net.minecraft.client.renderer.LevelRenderer;
@@ -58,7 +57,7 @@ public abstract class StructureBlockRendererMixin {
             double i = (blockPos3.getY() - blockPos.getY()) + 0.55f + f;
             double j = (blockPos3.getZ() - blockPos.getZ()) + 0.55f + f;
             if (isAir) {
-                if (isCaveAir && ((ExtendedStructureBlockEntity)blockEntity).extendedStructureBlocks$shouldShowCaveAir()) {
+                if (isCaveAir) {
                     LevelRenderer.renderLineBox(poseStack, consumer, d, e, g, h, i, j, 0.5f, 1, 0.5f, 1, 0.5f, 1, 0.5f);
                 } else {
                     LevelRenderer.renderLineBox(poseStack, consumer, d, e, g, h, i, j, 0.5f, 0.5f, 1, 1, 0.5f, 0.5f, 1);

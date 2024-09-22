@@ -7,7 +7,8 @@
   "authors": ["${mod_author}"],
   "contact": {
     "sources": "https://github.com/DarkPred/Extended-Structure-Blocks",
-    "issues": "https://github.com/DarkPred/Extended-Structure-Blocks/issues"
+    "issues": "https://github.com/DarkPred/Extended-Structure-Blocks/issues",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/extended-structure-blocks"
   },
   "license": "${mod_license}",
   "icon": "assets/extended_structure_blocks/logo.png",

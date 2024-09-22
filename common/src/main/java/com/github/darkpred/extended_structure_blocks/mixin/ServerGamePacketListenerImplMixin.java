@@ -16,15 +16,6 @@ public abstract class ServerGamePacketListenerImplMixin {
 
     @Inject(method = "handleSetStructureBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/entity/StructureBlockEntity;setSeed(J)V", shift = At.Shift.AFTER))
     private void setStructureVoidSave(CallbackInfo ci, @Local(argsOnly = true) ServerboundSetStructureBlockPacket pPacket, @Local StructureBlockEntity structureBlockEntity) {
-        ((ExtendedStructureBlockEntity)structureBlockEntity).extendedStructureBlocks$setSaveStructureVoid(((ExtendedStructurePacket)pPacket).extendedStructureBlocks$shouldSaveStructureVoid());
-        ((ExtendedStructureBlockEntity)structureBlockEntity).extendedStructureBlocks$setShowCaveAir(((ExtendedStructurePacket)pPacket).extendedStructureBlocks$shouldShowCaveAir());
+        ((ExtendedStructureBlockEntity) structureBlockEntity).extended$setSaveStructureVoid(((ExtendedStructurePacket) pPacket).extended$shouldSaveStructureVoid());
     }
-    /*@Inject(method = "handleSetStructureBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/entity/StructureBlockEntity;setSeed(J)V", shift = At.Shift.AFTER))
-    private void setStructureVoidSave2(CallbackInfo ci, @Local(argsOnly = true) ServerboundSetStructureBlockPacket pPacket) {
-    }*/
-    /*@ModifyArg(method = "handleSetStructureBlock", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/level/block/entity/StructureBlockEntity;setSeed(J)V", shift = At.Shift.AFTER))
-    private void setStructureVoidSave3(ServerGamePacketListenerImpl value, @Local StructureBlockEntity structureBlockEntity) {
-        ((IMixinStructureBlockEntity)structureBlockEntity).extendedStructureBlocks$setSaveStructureVoid(((IMixinStructurePacket)pPacket).extendedStructureBlocks$shouldSaveStructureVoid());
-        ((IMixinStructureBlockEntity)structureBlockEntity).extendedStructureBlocks$setShowCaveAir(((IMixinStructurePacket)pPacket).extendedStructureBlocks$shouldShowCaveAir());
-    }*/
 }

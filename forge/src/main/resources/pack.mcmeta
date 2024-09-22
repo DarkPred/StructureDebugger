@@ -1,6 +1,6 @@
 {
   "pack": {
-    "description": "extended_structure_blocks resources",
+    "description": "${mod_id} resources",
     "pack_format": 9
   }
 }

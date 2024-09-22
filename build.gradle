@@ -3,7 +3,6 @@ subprojects {
 
     java.toolchain.languageVersion = JavaLanguageVersion.of(17)
     java.withSourcesJar()
-    java.withJavadocJar()
 
     base {
         //Jar name
@@ -53,11 +52,6 @@ subprojects {
     tasks.withType(JavaCompile).configureEach {
         it.options.encoding = 'UTF-8'
         it.options.release = 17
-    }
-    tasks.withType(Javadoc).configureEach {
-        options.tags("apiNote:a:API Note:")
-        options.tags("implSpec:a:Implementation Requirements:")
-        options.tags("implNote:a:Implementation Note:")
     }
 
     // Disables Gradle's custom module metadata from being published to maven. The

@@ -101,7 +101,7 @@ processResources {
         inputs.property(property.getKey(), property.getValue())
     }
 
-    filesMatching("META-INF/mods.toml") {
+    filesMatching(["META-INF/mods.toml", "pack.mcmeta"]) {
         expand(properties)
     }
 }
