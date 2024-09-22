@@ -33,20 +33,3 @@ processResources {
         expand buildProps
     }
 }
-
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            groupId project.group
-            artifactId "${archives_name}-${project.name.toLowerCase()}"
-            version project.version
-            from components.java
-        }
-    }
-
-    repositories {
-        maven {
-            url "file://" + System.getenv("local_maven")
-        }
-    }
-}

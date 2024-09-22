@@ -122,7 +122,7 @@ publishing {
         mavenJava(MavenPublication) {
             groupId project.group
             artifactId "${archives_name}-${project.name.toLowerCase()}"
-            version project.version
+            version "${minecraft_version}-${version}"
             artifact tasks.jarJar
             from components.java
         }
