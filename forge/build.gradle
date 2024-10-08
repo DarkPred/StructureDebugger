@@ -29,7 +29,7 @@ minecraft {
             mods {
                 modClientRun {
                     source sourceSets.main
-                    source project(":Common").sourceSets.main
+                    source project(":common").sourceSets.main
                 }
             }
         }
@@ -43,7 +43,7 @@ minecraft {
             mods {
                 modServerRun {
                     source sourceSets.main
-                    source project(":Common").sourceSets.main
+                    source project(":common").sourceSets.main
                 }
             }
         }
@@ -58,7 +58,7 @@ minecraft {
             mods {
                 modDataRun {
                     source sourceSets.main
-                    source project(":Common").sourceSets.main
+                    source project(":common").sourceSets.main
                 }
             }
         }
@@ -75,7 +75,7 @@ dependencies {
         jarJar.ranged(it, "[0.4.1,)")
     }
 
-    compileOnly project(":Common")
+    compileOnly project(":common")
     compileOnly(annotationProcessor('com.google.auto.service:auto-service:1.1.1'))
 }
 
@@ -85,7 +85,7 @@ mixin {
 }
 
 tasks.withType(JavaCompile) {
-    source(project(":Common").sourceSets.main.allSource)
+    source(project(":common").sourceSets.main.allSource)
 }
 
 def properties = [
@@ -96,7 +96,7 @@ def properties = [
 ]
 
 processResources {
-    from project(":Common").sourceSets.main.resources
+    from project(":common").sourceSets.main.resources
     for (final def property in properties) {
         inputs.property(property.getKey(), property.getValue())
     }
@@ -121,7 +121,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId project.group
-            artifactId "${archives_name}-${project.name.toLowerCase()}-${minecraft_version}"
+            artifactId "${archives_name}-${project.name}-${minecraft_version}"
             version "${version}"
             artifact tasks.jarJar
             from components.java
