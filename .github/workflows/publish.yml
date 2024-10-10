@@ -58,7 +58,7 @@ jobs:
           github-tag: fabric-${{env.minecraft_version}}-${{env.mod_version}}
           github-token: ${{env.GITHUB_TOKEN}}
 
-          name: ${{env.mod_version}} for Minecraft Fabric ${{env.minecraft_version}}
+          name: ${{env.mod_version}} for Fabric ${{env.minecraft_version}}
           game-versions: ${{env.minecraft_version_range}}
           version: ${{env.mod_version}}
           changelog-file: CHANGELOG.md
@@ -81,7 +81,7 @@ jobs:
           github-tag: forge-${{env.minecraft_version}}-${{env.mod_version}}
           github-token: ${{env.GITHUB_TOKEN}}
 
-          name: ${{env.mod_version}} for Minecraft Forge ${{env.minecraft_version}}
+          name: ${{env.mod_version}} for Forge ${{env.minecraft_version}}
           game-versions: ${{env.minecraft_version_range}}
           version: ${{env.mod_version}}
           changelog-file: CHANGELOG.md
